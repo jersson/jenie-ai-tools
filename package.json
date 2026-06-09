@@ -1,0 +1,21 @@
+{
+  "name": "@jenie/opencode-skills",
+  "version": "0.1.0",
+  "description": "Skill library for opencode — task validation and more",
+  "license": "MIT",
+  "files": [
+    "skills/",
+    "plugin.mjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jersson/opencode-skills.git"
+  },
+  "keywords": [
+    "opencode",
+    "skill",
+    "task-validator",
+    "invest",
+    "3cs"
+  ]
+}

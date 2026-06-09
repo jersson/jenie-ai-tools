@@ -7,7 +7,7 @@ description: Validate user stories and bugs for consistency and doability using 
 
 When this skill is loaded, you help the developer validate a task (user story or bug) before they start implementation.
 
-First, load general guidelines from `globals/` — read `globals/efficiency.md`, `globals/formatting.md`, and `globals/safety.md`. Cache these for the session.
+First, load general guidelines from `../globals/` — read `../globals/efficiency.md`, `../globals/formatting.md`, and `../globals/safety.md`. Cache these for the session.
 
 ## Workflow
 
@@ -16,8 +16,8 @@ First, load general guidelines from `globals/` — read `globals/efficiency.md`,
 Ask the developer: **Is this a user story or a bug?**
 
 Based on their answer, load the appropriate checklist:
-- User story → read `guidelines/user-story/checklist.md` and `guidelines/user-story/template.md`
-- Bug → read `guidelines/bug/checklist.md` and `guidelines/bug/template.md`
+- User story → read `./guidelines/user-story/checklist.md` and `./guidelines/user-story/template.md`
+- Bug → read `./guidelines/bug/checklist.md` and `./guidelines/bug/template.md`
 
 ### 2. List available tasks
 
@@ -62,7 +62,7 @@ Consider:
 
 ### 8. Output format
 
-Structure your response following `globals/formatting.md` conventions (no preamble, scannable sections, markdown tables where useful).
+Structure your response following `../globals/formatting.md` conventions (no preamble, scannable sections, markdown tables where useful).
 
 Always include these three sections:
 
@@ -74,4 +74,4 @@ Bullet-list of what passes and what's missing, organized by INVEST and 3Cs.
 **Recommendation:**
 Clear next step or suggested fixes.
 
-Throughout the workflow, follow `globals/safety.md` — verify files exist before reading, don't assume libraries, stop on ambiguity, never propose destructive actions without confirmation. Follow `globals/efficiency.md` — batch reads, use targeted grep over full-file scans, avoid redundant re-reads.
+Throughout the workflow, follow `../globals/safety.md` — verify files exist before reading, don't assume libraries, stop on ambiguity, never propose destructive actions without confirmation. Follow `../globals/efficiency.md` — batch reads, use targeted grep over full-file scans, avoid redundant re-reads.
