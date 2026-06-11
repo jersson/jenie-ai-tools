@@ -1,7 +1,7 @@
 {
-  "name": "@jenie/opencode-skills",
+  "name": "@jenie/ai-tools",
   "version": "0.1.0",
-  "description": "Skill library for opencode — task validation and more",
+  "description": "Skill library to make code based on user stories or bugs specs",
   "license": "MIT",
   "files": [
     "skills/",
@@ -9,12 +9,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jersson/opencode-skills.git"
+    "url": "https://github.com/jersson/jenie-ai-tools.git"
   },
   "keywords": [
     "opencode",
     "skill",
-    "task-validator",
+    "list-tasks",
+    "analyze-task",
+    "jenie-ai-tools",
     "invest",
     "3cs"
   ]

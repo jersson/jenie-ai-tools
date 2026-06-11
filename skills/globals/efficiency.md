@@ -28,11 +28,9 @@ To minimize API costs and prevent context window saturation, adhere to these rul
 
 ## 5. Session Management
 
-- The manager must monitor token usage. If the history feels bloated, summarize current progress into `.workflow_state/active_tasks.json` and suggest a session reset.
 - If an agent has already read a file in the current turn, do not re-read it unless a modification has occurred.
 
 ## 6. Parallel-First Mindset
 
 - Always look for work that can be done in parallel before starting sequentially.
-- Use the manager skill's breakdown methodology to slice work into independent batches.
 - Assign each batch to a separate agent/workspace when possible.

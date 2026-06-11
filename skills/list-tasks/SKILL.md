@@ -1,0 +1,42 @@
+---
+name: list-tasks
+description: Browse available tasks (user story or bug) from the project's docs/ folder. Lists them for selection, then hands off to analyze-task for deeper validation.
+---
+
+# List Tasks Skill
+
+When this skill is loaded, you help the developer browse available tasks (user stories or bugs) stored in `<project_root>/docs/` folder.
+
+First, load general guidelines from `../globals/` — read `../globals/efficiency.md`, `../globals/formatting.md`, and `../globals/safety.md`. Cache these for the session.
+
+## Workflow
+
+### 1. Determine intent
+
+If the developer asks to **validate** or **analyze** a specific task (e.g., "validate this user story", "analyze bug"), do not proceed with listing. Instead, tell them to use `/jenie:analyze-task` for that and stop.
+
+If they want to **list**, **browse**, or **show** tasks, proceed.
+
+### 2. Determine task type
+
+If the developer already stated the type (e.g., "list available bugs"), infer it directly — **do not ask**.
+
+Otherwise, ask: **Are you looking for user stories or bugs?**
+
+### 3. Locate tasks folder
+
+Look in `<project_root>/docs/{type}s/` (e.g. `<project_root>/docs/user-stories/` or `<project_root>/docs/bugs/`). If the folder doesn't exist or is empty, ask the developer for an alternative location to browse (e.g., another directory or a specific file path). Update the search path based on their answer and continue.
+
+### 4. List available tasks
+
+Read the files found in the folder. For each file, extract a short description — read the first few lines to get the title or narrative (e.g., the "As a… I want…" line). Present them as a numbered list with the description.
+
+**Pagination:**
+- If there are **more than 5 items**, show the first 5 and ask: *"Show the next 5?"* Repeat until all are shown.
+- If there are **more than 15 items**, after paginating, suggest: *"There are many tasks — consider using a more specific search (e.g., grep for a keyword) inside the folder to narrow down."*
+
+### 5. Next steps
+
+After listing, ask: **Which task would you like to analyze?** When they pick one, suggest using `/jenie:analyze-task` to validate it with INVEST + 3C.
+
+Throughout the workflow, follow `../globals/safety.md` — verify files exist before reading, don't assume libraries, stop on ambiguity. Follow `../globals/efficiency.md` — batch reads, use targeted grep over full-file scans, avoid redundant re-reads.
