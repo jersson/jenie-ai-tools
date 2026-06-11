@@ -7,7 +7,9 @@ description: Browse available tasks (user story or bug) from the project's docs/
 
 When this skill is loaded, you help the developer browse available tasks (user stories or bugs) stored in `<project_root>/docs/` folder.
 
-First, load general guidelines from `../globals/` — read `../globals/efficiency.md`, `../globals/formatting.md`, and `../globals/safety.md`. Cache these for the session.
+## Pre-condition: Load Global Guidelines
+
+Read `../globals/INDEX.md` and follow its instructions to load all globals. Cache them for the session. This must complete before any workflow step.
 
 ## Workflow
 
@@ -21,7 +23,7 @@ If they want to **list**, **browse**, or **show** tasks, proceed.
 
 If the developer already stated the type (e.g., "list available bugs"), infer it directly — **do not ask**.
 
-Otherwise, ask: **Are you looking for user stories or bugs?**
+Otherwise, ask: **Is this a user story or a bug?**
 
 ### 3. Locate tasks folder
 
@@ -39,4 +41,4 @@ Read the files found in the folder. For each file, extract a short description �
 
 After listing, ask: **Which task would you like to analyze?** When they pick one, suggest using `/jenie:analyze-task` to validate it with INVEST + 3C.
 
-Throughout the workflow, follow `../globals/safety.md` — verify files exist before reading, don't assume libraries, stop on ambiguity. Follow `../globals/efficiency.md` — batch reads, use targeted grep over full-file scans, avoid redundant re-reads.
+Throughout the workflow, follow the loaded global guidelines.

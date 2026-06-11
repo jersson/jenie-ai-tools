@@ -23,8 +23,7 @@ To minimize API costs and prevent context window saturation, adhere to these rul
 ## 4. Avoid Redundancy
 
 - Do not re-read files you already have in context.
-- Do not re-derive information already produced by a prior skill.
-- Pass artifacts between skills rather than recomputing.
+- Each `/jenie:*` command starts a fresh conversation — include all relevant context explicitly rather than assuming prior skill output is available.
 
 ## 5. Session Management
 
@@ -33,4 +32,7 @@ To minimize API costs and prevent context window saturation, adhere to these rul
 ## 6. Parallel-First Mindset
 
 - Always look for work that can be done in parallel before starting sequentially.
-- Assign each batch to a separate agent/workspace when possible.
+
+## 7. Token Awareness
+
+Be mindful of output length — prefer concise responses. Expand detail only when the developer asks for it.

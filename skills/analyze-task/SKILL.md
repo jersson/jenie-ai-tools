@@ -7,7 +7,9 @@ description: Validate consistency of the selected task (user story or bug) using
 
 When this skill is loaded, you help the developer validate a task (user story or bug) before they start implementation. Use `/jenie:list-tasks` first if they need to browse available tasks.
 
-First, load general guidelines from `../globals/` — read `../globals/efficiency.md`, `../globals/formatting.md`, and `../globals/safety.md`. Cache these for the session.
+## Pre-condition: Load Global Guidelines
+
+Read `../globals/INDEX.md` and follow its instructions to load all globals. Cache them for the session. This must complete before any workflow step.
 
 ## Workflow
 
@@ -68,7 +70,7 @@ Consider:
 
 ### 8. Output format
 
-Structure your response following `../globals/formatting.md` conventions (no preamble, scannable sections, markdown tables where useful).
+Structure your response following the loaded global guidelines (no preamble, scannable sections, markdown tables where useful).
 
 Always include these four sections:
 
@@ -83,4 +85,4 @@ Bullet-list of what passes and what's missing, organized by INVEST and 3Cs.
 **Recommendation:**
 Clear next step or suggested fixes.
 
-Throughout the workflow, follow `../globals/safety.md` — verify files exist before reading, don't assume libraries, stop on ambiguity, never propose destructive actions without confirmation. Follow `../globals/efficiency.md` — batch reads, use targeted grep over full-file scans, avoid redundant re-reads.
+Throughout the workflow, follow the loaded global guidelines.

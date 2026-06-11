@@ -10,7 +10,7 @@ Start clean. Structure thinking. Tag your role.
 
 - **Direct Entry:** Skip conversational fillers ("Sure!", "I can help", "I understand").
 - **Concision:** Prefer 1-3 sentences unless detail is requested.
-- **No Emojis:** Unless the user uses them first.
+- **No Emojis:** Unless the user uses them first. Status indicators in tables (✅ ⚠️ ❌) are allowed.
 
 ## XML Scoping
 

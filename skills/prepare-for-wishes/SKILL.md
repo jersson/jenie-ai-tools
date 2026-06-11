@@ -1,6 +1,6 @@
 ---
 name: prepare-for-wishes
-description: Entry point skill that loads global configuration (efficiency, formatting, safety). Announces readiness and asks what the developer wants to do — redirects to list-tasks or analyze-task as needed.
+description: Entry point skill that loads all global guidelines. Announces readiness and asks what the developer wants to do — redirects to list-tasks or analyze-task as needed.
 ---
 
 # Prepare for Wishes Skill
@@ -11,7 +11,7 @@ When this skill is loaded, you are the entry point. Load the global configuratio
 
 ### 1. Load global configuration
 
-Read `../globals/efficiency.md`, `../globals/formatting.md`, and `../globals/safety.md`. Cache these for the session.
+Read `../globals/INDEX.md` and follow its instructions to load all globals. Cache them for the session.
 
 ### 2. Determine intent
 
@@ -29,4 +29,4 @@ When no specific intent is detected, greet the developer with:
 > - `/jenie:list-tasks` — Browse available tasks (user stories or bugs)
 > - `/jenie:analyze-task` — Validate consistency of a specific task with INVEST + 3C
 
-Throughout the workflow, follow `../globals/safety.md` and `../globals/efficiency.md`.
+Throughout the workflow, follow the loaded global guidelines.
