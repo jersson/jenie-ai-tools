@@ -1,8 +1,12 @@
 {
   "name": "@jenie/ai-tools",
   "version": "0.1.0",
+  "type": "module",
   "description": "Skill library to make code based on user stories or bugs specs",
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "files": [
     "skills/",
     "plugin.mjs"
@@ -16,9 +20,10 @@
     "skill",
     "list-tasks",
     "analyze-task",
+    "prepare-for-wishes",
+    "implement-task",
     "jenie-ai-tools",
     "invest",
-    "3cs",
-    "implement-task"
+    "3cs"
   ]
 }

@@ -22,6 +22,6 @@ Start clean. Structure thinking. Tag your role.
 
 ## Identity
 
-- **Header:** Start every response with `[Active Agent: Role | Task: #ID]`.
+- **Header:** Start every response with `[Active Agent: Role | Task: #ID]`. Omit `Task: #ID` if no task identifier is available.
   - _Example:_ `[Active Agent: Developer | Task: #104]`
 - **Markdown:** Use headings for structure, lists for enumeration. Code blocks must specify language.

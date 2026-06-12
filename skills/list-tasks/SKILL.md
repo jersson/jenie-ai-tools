@@ -7,7 +7,9 @@ description: Browse available tasks (user story or bug) from the project's docs/
 
 When this skill is loaded, you help the developer browse available tasks (user stories or bugs) stored in `<project_root>/docs/` folder.
 
-## Pre-condition: Load Global Guidelines
+## Pre-condition
+
+### 1. Load Global Guidelines
 
 Read `../globals/INDEX.md` and follow its instructions to load all globals. Cache them for the session. This must complete before any workflow step.
 
@@ -27,11 +29,11 @@ Otherwise, ask: **Is this a user story or a bug?**
 
 ### 3. Locate tasks folder
 
-Look in `<project_root>/docs/{type}s/` (e.g. `<project_root>/docs/user-stories/` or `<project_root>/docs/bugs/`). If the folder doesn't exist or is empty, ask the developer for an alternative location to browse (e.g., another directory or a specific file path). Update the search path based on their answer and continue.
+Look in `<project_root>/docs/{type}s/` (e.g. `<project_root>/docs/user-stories/` or `<project_root>/docs/bugs/`). If the folder doesn't exist or is empty, ask the developer for an alternative location to browse (e.g., another directory or a specific file path). If they provide one, update the search path and continue. If they don't, inform them no tasks can be listed and **stop**.
 
 ### 4. List available tasks
 
-Read the files found in the folder. For each file, extract a short description — read the first few lines to get the title or narrative (e.g., the "As a… I want…" line). Present them as a numbered list with the description.
+Read the files found in the folder (use `glob` to list them, then `read` each). For each file, extract a short description — read the first 5 lines or until the first blank line to get the title or narrative (e.g., the "As a… I want…" line). Present them as a numbered list with the description.
 
 **Pagination:**
 - If there are **more than 5 items**, show the first 5 and ask: *"Show the next 5?"* Repeat until all are shown.

@@ -16,9 +16,17 @@ git checkout -b feature/<type>-<description>
 
 Example: `feature/user-story-add-login`, `feature/bug-fix-null-pointer`.
 
-If the branch already exists, ask the developer how to proceed.
+If the branch already exists locally, ask the developer how to proceed.
 
-## 3. Functional commit
+## 3. Staging
+
+Before staging, run `git status` and verify no sensitive files (`.env`, credentials, API keys, tokens, build artifacts) are present. Stage changes with:
+
+```
+git add -A
+```
+
+## 4. Functional commit
 
 Once all tests are green, commit the implementation:
 
@@ -29,7 +37,7 @@ git commit -m "feat: <short description of what was implemented>"
 
 Use conventional commit format (`feat:`, `fix:`, `refactor:`).
 
-## 4. Quality commit
+## 5. Quality commit
 
 After linting, type-checking, and fixes are complete:
 

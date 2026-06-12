@@ -7,7 +7,9 @@ description: Validate consistency of the selected task (user story or bug) using
 
 When this skill is loaded, you help the developer validate a task (user story or bug) before they start implementation. Use `/jenie:list-tasks` first if they need to browse available tasks.
 
-## Pre-condition: Load Global Guidelines
+## Pre-condition
+
+### 1. Load Global Guidelines
 
 Read `../globals/INDEX.md` and follow its instructions to load all globals. Cache them for the session. This must complete before any workflow step.
 
@@ -31,26 +33,21 @@ Load the appropriate checklist:
 
 ### 3. Read the task
 
-Read the task file from `<project_root>/docs/{type}s/` or use what the developer pastes. Compare it against the loaded checklist.
+Read the task file from `<project_root>/docs/{type}s/` (substitute `user-story` → `user-stories`, `bug` → `bugs`) or use what the developer pastes. Compare it against the loaded checklist.
 
 ### 4. Validate correctness
 
-**4a. Content correctness (always runs)** — Analyze the task itself for logical consistency, domain accuracy, and internal contradictions:
-- Do the acceptance criteria conflict with each other?
-- Is the role appropriate for the action described?
-- Does the benefit logically follow from the action?
-- Are there implicit assumptions that should be explicit?
-- For bugs: do the steps to reproduce actually lead to the described behavior?
+**4a. Content correctness (always runs)** — Read `./guidelines/correctness-check.md` and analyze the task against each criterion.
 
-**4b. Code cross-check (only if a codebase exists)** — Check whether a `.git` directory exists. If it does, additionally search the codebase for referenced roles, entities, actions, or UI elements to confirm they exist. Flag domain mismatches (e.g., "As an admin" when no admin module exists).
+**4b. Code cross-check (only if a codebase exists)** — Check whether a `.git` directory exists (use `ls` or `test -d`). If it does, use `grep` to search the source code for referenced roles, entities, actions, or UI elements from the task. Confirm they exist. Flag domain mismatches (e.g., "As an admin" when no admin module exists).
 
 Report findings as a **Correctness** section.
 
 ### 5. Validate against the checklist
 
-For each criterion in the INVEST table and the 3Cs table, assess whether the task satisfies it. Be honest — flag missing or weak areas.
+For each criterion in the INVEST table and the 3Cs table (loaded from the guideline file in step 2), assess whether the task satisfies it. Be honest — flag missing or weak areas.
 
-Also run the **consistency checks** from the relevant checklist file.
+Also run the **consistency checks** from the same checklist file (user-story or bug) loaded in step 2.
 
 ### 6. Assess doability
 
@@ -89,7 +86,7 @@ Clear next step or suggested fixes.
 
 Write the validation outcome to `<project_root>/.jenie/.validation-registry.json` so downstream skills (e.g., `implement-task`) can check recency and result.
 
-1. Read `<project_root>/.jenie/.validation-registry.json`. If missing, start with `{"tasks": []}`.
+1. Read `<project_root>/.jenie/.validation-registry.json`. If the file does not exist or contains invalid JSON, start with `{"tasks": []}`.
 2. Find any existing entry with the same `path` and replace it; otherwise append.
 3. Each entry must include:
    - `path`: the task file path relative to project root

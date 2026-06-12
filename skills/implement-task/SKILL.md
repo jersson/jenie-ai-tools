@@ -15,11 +15,11 @@ Read `../globals/INDEX.md` and follow its instructions to load all globals. Cach
 
 ### 2. Verify repository exists
 
-Check whether a `.git` directory exists at the project root (`<project_root>/.git`). If it does not — there is no repository and no code to modify — inform the developer and **stop**. Do not proceed.
+Check whether a `.git` directory exists at the project root (`<project_root>/.git` — use `ls` or `test -d`). If it does not — there is no repository and no code to modify — inform the developer and **stop**. Do not proceed.
 
 ### 3. Load technical context
 
-Check whether `<project_root>/.jenie/technical-context.md` exists.
+Check whether `<project_root>/.jenie/technical-context.md` exists (use `ls` or `test -f`).
 
 - **If it exists:** Read the file and cache its contents as the session's technical reference. The information within (scripts, naming conventions, project structure, workflow) should guide implementation decisions throughout all subsequent steps.
 - **If it does not exist:** This is a blocker. Tell the developer:
@@ -33,11 +33,11 @@ Check whether `<project_root>/.jenie/technical-context.md` exists.
 
 Ask the developer which task they want to implement — a file path or a reference to a task from `docs/`. If they're unsure, suggest using `/jenie:list-tasks` first to browse and stop.
 
-Once you have the task file path, read the full task file so you know its acceptance criteria and details.
+Once you have the task file path, read the full task file so you know its acceptance criteria and details. If the developer does not provide a task after the prompt, inform them that implementation cannot proceed without a task and **stop**.
 
 ### 2. Check validation recency
 
-1. Read `<project_root>/.jenie/.validation-registry.json`. If the file does not exist, no validation has been recorded.
+1. Read `<project_root>/.jenie/.validation-registry.json`. If the file does not exist or contains invalid JSON, no validation has been recorded.
 2. Find an entry whose `path` matches the task file path (relative to project root).
 3. Determine the current UTC time. If **no entry exists** or the entry's `timestamp` is **older than 1 hour** from the current time:
    - Tell the developer the task needs re-validation (it was never validated or the validation expired).
@@ -49,7 +49,9 @@ Once you have the task file path, read the full task file so you know its accept
 
 ### 3. Create a feature branch
 
-Read `./guidelines/git.md` and follow its branch naming and working tree conventions.
+Read `./guidelines/git.md` and follow its branch naming and working tree conventions. Cache the git conventions for later steps.
+
+Before creating the branch, check whether a remote named `origin` exists (`git remote get-url origin`). If it does, check whether the branch exists on the remote (`git ls-remote --heads origin feature/<type>-<description>`). If it exists, ask the developer how to proceed (reuse, rename, or delete). If no `origin` remote exists, skip the remote check and proceed.
 
 ### 4. Write test cases from acceptance criteria (TDD)
 
@@ -57,7 +59,7 @@ Read `./guidelines/tdd.md` and follow its TDD process: extract criteria, discove
 
 ### 5. Functional commit
 
-Once all tests are green, read `./guidelines/git.md` and follow its functional commit conventions.
+Once all tests are green, follow the functional commit conventions from the cached git guidelines (`./guidelines/git.md`).
 
 ### 6. Quality check
 
@@ -70,7 +72,7 @@ Read `./guidelines/quality-check.md` and run all checks — linting, type-checki
 
 ### 8. Quality commit
 
-Read `./guidelines/git.md` and follow its quality commit conventions.
+Follow the quality commit conventions from the cached git guidelines (`./guidelines/git.md`).
 
 ### 9. Report
 

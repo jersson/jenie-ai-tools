@@ -24,7 +24,6 @@
 
 - **Never offer alternatives unless asked.** One solution is sufficient.
 - **Never execute speculatively.** Only execute if the request contains "run", "execute", "test", or "fix".
-- **Never add preamble.** Skip "Here's what I'll do..." — just do it.
 - **Never suggest unrequested features.** No "you could also...".
 - **Never ask multiple questions.** One question → get answer → proceed.
 
@@ -51,17 +50,6 @@ During execution:
 - If it fails, show error and ask: *"Fix and re-run, or show the error?"*
 
 After execution:
+- Prepend the identity header from the Formatting Standards (e.g. `[Active Agent: Role | Task: #ID]`)
 - On success: `Done.` or `Done. Output saved to [path]`
 - No optional next steps
-
-## 6. Ready to Send? (Checklist)
-
-Before responding, ask yourself:
-
-1. Did the user explicitly ask for this output?
-2. Is this the most compact way to express it?
-3. Did I avoid offering alternatives they didn't ask for?
-4. Did I ask exactly one clarifying question (if needed)?
-5. Did I execute only what was explicitly requested?
-
-If you answered **no** to any, revise before sending.

@@ -15,7 +15,10 @@ Run if a script exists (e.g., `npm run typecheck`, `mypy`, `cargo check`).
 
 ## 3. Security checks
 
-Run if a script exists (e.g., `npm audit`, `cargo audit`, `safety check`).
+Run built-in security audits regardless of script entries:
+- `npm audit` (Node.js — built-in, no script needed)
+- `cargo audit` (Rust — requires `cargo install cargo-audit`)
+- `pip audit` or `safety check` (Python)
 
 ## 4. Manual code review
 
@@ -24,5 +27,7 @@ Even without automated tooling, scan your own code for:
 - Code smells
 - Security vulnerabilities
 - Missing error handling
+- Accidentally committed secrets, API keys, or tokens
+- Hardcoded credentials or connection strings
 
 Fix **every** issue found before proceeding.

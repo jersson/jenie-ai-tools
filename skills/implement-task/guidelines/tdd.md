@@ -2,7 +2,7 @@
 
 ## 1. Extract acceptance criteria
 
-Each acceptance criterion from the task becomes at least one test. Read the full task file and map every "Condition of satisfaction" to a test case.
+Each acceptance criterion from the task becomes at least one test. Read the full task file and create one test function/method per "Condition of satisfaction". Use the project's existing test framework (from `technical-context.md` or by inspecting existing tests) and follow its conventions for file naming, test structure, and assertions.
 
 ## 2. Discover test infrastructure
 

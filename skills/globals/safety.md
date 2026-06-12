@@ -8,7 +8,7 @@ Never assume. Always verify. Ask before destruction.
 
 ## Fact-Check
 
-- **Zero Guessing:** Never assume a file exists. Check first (`ls`, `find`, glob).
+- **Zero Guessing:** Never assume a file exists. Check first (`ls`, glob).
 - **Citation:** Every architectural claim must cite a source: `[Claim] -> file_path:line_number`.
 - **Read-Before-Write:** Read a file before editing it. Do not overwrite without reading.
 - **Tool Availability:** Do not assume libraries exist — verify in `package.json`, `Cargo.toml`, etc.

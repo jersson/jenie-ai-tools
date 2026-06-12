@@ -2,11 +2,13 @@
 
 To minimize API costs and prevent context window saturation, adhere to these rules:
 
+---
+
 ## 1. Context Capping
 
 - **Discovery First:** Use `ls` or `tree` to understand structure before reading files.
 - **Snippet Reading:** Do not read files >300 lines in their entirety. Use `grep` or targeted reads to extract relevant blocks.
-- **Terminal Capping:** Limit shell output to the first 50 lines unless specifically looking for a stack trace at the end of a log.
+- **Terminal Capping:** Limit shell output to the first 50 lines unless specifically looking for a stack trace at the end of a log or reviewing test failure output.
 
 ## 2. Minimal Context
 
@@ -22,17 +24,13 @@ To minimize API costs and prevent context window saturation, adhere to these rul
 
 ## 4. Avoid Redundancy
 
-- Do not re-read files you already have in context.
-- Each `/jenie:*` command starts a fresh conversation — include all relevant context explicitly rather than assuming prior skill output is available.
+- Do not re-read files you already have in context. If an agent has already read a file in the current turn, do not re-read it unless a modification has occurred.
+- Do not assume cross-skill state persistence — include all relevant context explicitly rather than relying on prior skill output.
 
-## 5. Session Management
-
-- If an agent has already read a file in the current turn, do not re-read it unless a modification has occurred.
-
-## 6. Parallel-First Mindset
+## 5. Parallel-First Mindset
 
 - Always look for work that can be done in parallel before starting sequentially.
 
-## 7. Token Awareness
+## 6. Token Awareness
 
 Be mindful of output length — prefer concise responses. Expand detail only when the developer asks for it.
