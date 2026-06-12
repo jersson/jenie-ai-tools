@@ -1,0 +1,28 @@
+# Quality Check
+
+Run all available automated checks, then manually scan for issues.
+
+## 1. Linting
+
+Detect the project's linter (from `technical-context.md` or by probing):
+- `npm run lint` (Node.js)
+- `ruff check .` or `pylint` (Python)
+- `cargo clippy` (Rust)
+
+## 2. Type-checking
+
+Run if a script exists (e.g., `npm run typecheck`, `mypy`, `cargo check`).
+
+## 3. Security checks
+
+Run if a script exists (e.g., `npm audit`, `cargo audit`, `safety check`).
+
+## 4. Manual code review
+
+Even without automated tooling, scan your own code for:
+- Bad practices or anti-patterns
+- Code smells
+- Security vulnerabilities
+- Missing error handling
+
+Fix **every** issue found before proceeding.

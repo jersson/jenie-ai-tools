@@ -1,0 +1,29 @@
+# TDD Workflow
+
+## 1. Extract acceptance criteria
+
+Each acceptance criterion from the task becomes at least one test. Read the full task file and map every "Condition of satisfaction" to a test case.
+
+## 2. Discover test infrastructure
+
+- Look for a `tests/` or `test/` directory at project root.
+- Check `package.json` for a `test` script.
+- Look for `*.test.*` or `*.spec.*` files adjacent to source code.
+- If none found, ask the developer where tests should live.
+
+## 3. Red phase
+
+Write tests that cover **every** acceptance criterion **before** writing any implementation code. Run the tests to confirm they **fail**:
+
+```
+npm test
+```
+(or the equivalent test command from `technical-context.md`)
+
+If the tests pass without implementation (feature already exists), inform the developer and stop.
+
+## 4. Green phase
+
+1. Write the minimum code needed to make the failing tests pass.
+2. Run the tests after each meaningful change.
+3. Repeat until **all** tests pass.
