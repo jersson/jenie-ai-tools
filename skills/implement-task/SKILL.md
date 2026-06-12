@@ -17,6 +17,16 @@ Read `../globals/INDEX.md` and follow its instructions to load all globals. Cach
 
 Check whether a `.git` directory exists at the project root (`<project_root>/.git`). If it does not — there is no repository and no code to modify — inform the developer and **stop**. Do not proceed.
 
+### 3. Load technical context
+
+Check whether `<project_root>/.jenie/technical-context.md` exists.
+
+- **If it exists:** Read the file and cache its contents as the session's technical reference. The information within (scripts, naming conventions, project structure, workflow) should guide implementation decisions throughout all subsequent steps.
+- **If it does not exist:** This is a blocker. Tell the developer:
+  > ⚠️ **Technical context not found.** The file `.jenie/technical-context.md` is required for implementation (it provides project structure, scripts, naming conventions, and workflow rules). Please run `/jenie:prepare-for-wishes` first to generate it.
+  
+  **Stop.** Do not proceed with implementation.
+
 ## Workflow
 
 ### 1. Determine the task to implement
@@ -27,7 +37,7 @@ Once you have the task file path, read the full task file so you know its accept
 
 ### 2. Check validation recency
 
-1. Read `<project_root>/.validation-registry.json`. If the file does not exist, no validation has been recorded.
+1. Read `<project_root>/.jenie/.validation-registry.json`. If the file does not exist, no validation has been recorded.
 2. Find an entry whose `path` matches the task file path (relative to project root).
 3. Determine the current UTC time. If **no entry exists** or the entry's `timestamp` is **older than 1 hour** from the current time:
    - Tell the developer the task needs re-validation (it was never validated or the validation expired).

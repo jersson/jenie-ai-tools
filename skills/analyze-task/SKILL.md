@@ -87,9 +87,9 @@ Clear next step or suggested fixes.
 
 ### 9. Persist validation result
 
-Write the validation outcome to `<project_root>/.validation-registry.json` so downstream skills (e.g., `implement-task`) can check recency and result.
+Write the validation outcome to `<project_root>/.jenie/.validation-registry.json` so downstream skills (e.g., `implement-task`) can check recency and result.
 
-1. Read `<project_root>/.validation-registry.json`. If missing, start with `{"tasks": []}`.
+1. Read `<project_root>/.jenie/.validation-registry.json`. If missing, start with `{"tasks": []}`.
 2. Find any existing entry with the same `path` and replace it; otherwise append.
 3. Each entry must include:
    - `path`: the task file path relative to project root
