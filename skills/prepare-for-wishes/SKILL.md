@@ -19,6 +19,7 @@ Read `../globals/INDEX.md` and follow its instructions to load all globals. Cach
 |---------------------------|-------|
 | **list**, **browse**, or **show** tasks | Redirect to `/jenie:list-tasks` and stop |
 | **validate**, **analyze**, or **review** a task | Redirect to `/jenie:analyze-task` and stop |
+| **implement** or **code** a task | Redirect to `/jenie:implement-task` and stop |
 | **prepare** or nothing specific yet | Announce readiness and present available commands |
 
 ### 3. Announce readiness
@@ -28,5 +29,6 @@ When no specific intent is detected, greet the developer with:
 > Jenie is ready. What would you like to do?
 > - `/jenie:list-tasks` — Browse available tasks (user stories or bugs)
 > - `/jenie:analyze-task` — Validate consistency of a specific task with INVEST + 3C
+> - `/jenie:implement-task` — Implement a validated task end-to-end (branch, TDD, commit, lint)
 
 Throughout the workflow, follow the loaded global guidelines.

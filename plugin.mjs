@@ -26,6 +26,10 @@ export default async () => {
         template: 'Load the prepare-for-wishes skill and follow its workflow step by step.',
         description: 'Entry point — loads global config and asks what to do'
       };
+      cfg.command['jenie:implement-task'] = {
+        template: 'Load the implement-task skill and follow its workflow step by step.',
+        description: 'Implement a validated task end-to-end — branch, TDD, implement, lint, commit'
+      };
 
       const globalsDir = resolve(skillsDir, 'globals');
       cfg.permission = cfg.permission || {};
