@@ -9,6 +9,7 @@
   },
   "files": [
     "skills/",
+    "lib/",
     "plugin.mjs",
     "cli.mjs"
   ],
