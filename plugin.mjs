@@ -15,9 +15,21 @@ export default async () => {
         }
 
         cfg.command = cfg.command || {};
-        cfg.command.jenie = {
-          template: 'The developer ran /jenie with argument: "$ARGUMENTS". Route to the appropriate skill:\n- "prepare-for-wishes" → Load the prepare-for-wishes skill and follow its workflow step by step.\n- "list-tasks" → Load the list-tasks skill and follow its workflow step by step.\n- "analyze-task" → Load the analyze-task skill and follow its workflow step by step.\n- "implement-task" → Load the implement-task skill and follow its workflow step by step.\nIf the argument is unrecognized or empty, load the prepare-for-wishes skill as the default entry point.',
-          description: 'Jenie skill runner — /jenie <prepare-for-wishes|list-tasks|analyze-task|implement-task>'
+        cfg.command['jenie prepare-for-wishes'] = {
+          template: 'Load the prepare-for-wishes skill and follow its workflow step by step.',
+          description: 'Entry point — loads global config, analyzes project technical context, and asks what to do'
+        };
+        cfg.command['jenie list-tasks'] = {
+          template: 'Load the list-tasks skill and follow its workflow step by step.',
+          description: 'Browse available tasks (user story or bug) from the project docs/ folder'
+        };
+        cfg.command['jenie analyze-task'] = {
+          template: 'Load the analyze-task skill and follow its workflow step by step.',
+          description: 'Analyze consistency of the selected task (user story or bug) using INVEST + 3C'
+        };
+        cfg.command['jenie implement-task'] = {
+          template: 'Load the implement-task skill and follow its workflow step by step.',
+          description: 'Implement a validated task end-to-end — branch, TDD, implement, lint, commit'
         };
 
         const globalsDir = resolve(skillsDir, 'globals');
