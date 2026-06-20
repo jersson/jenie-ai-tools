@@ -15,6 +15,10 @@ export default async () => {
         }
 
         cfg.command = cfg.command || {};
+        cfg.command.jenie = {
+          template: 'Load the prepare-for-wishes skill and follow its workflow step by step.',
+          description: 'Entry point (defaults to prepare-for-wishes) — loads global config, analyzes project technical context, and asks what to do'
+        };
         cfg.command['jenie prepare-for-wishes'] = {
           template: 'Load the prepare-for-wishes skill and follow its workflow step by step.',
           description: 'Entry point — loads global config, analyzes project technical context, and asks what to do'
