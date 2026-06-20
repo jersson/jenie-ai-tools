@@ -40,9 +40,9 @@ After outputting the warning, proceed to the Workflow section.
 
 | If the developer asks to… | Then… |
 |---------------------------|-------|
-| **list**, **browse**, or **show** tasks | Redirect to `/jenie:list-tasks` and stop |
-| **validate**, **analyze**, or **review** a task | Redirect to `/jenie:analyze-task` and stop |
-| **implement** or **code** a task | Redirect to `/jenie:implement-task` and stop |
+| **list**, **browse**, or **show** tasks | Redirect to `/jenie list-tasks` and stop |
+| **validate**, **analyze**, or **review** a task | Redirect to `/jenie analyze-task` and stop |
+| **implement** or **code** a task | Redirect to `/jenie implement-task` and stop |
 | **prepare** or nothing specific yet | Announce readiness and present available commands |
 
 ### 2. Announce readiness
@@ -50,8 +50,8 @@ After outputting the warning, proceed to the Workflow section.
 When no specific intent is detected, greet the developer. Include the technical context in your announcement if a repo was analyzed (e.g., "Technical context loaded — `<runtime>` + `<framework>` project, `<script_count>` scripts available"):
 
 > Jenie is ready. What would you like to do?
-> - `/jenie:list-tasks` — Browse available tasks (user stories or bugs)
-> - `/jenie:analyze-task` — Validate consistency of a specific task with INVEST + 3C
-> - `/jenie:implement-task` — Implement a validated task end-to-end (branch, TDD, commit, lint)
+> - `/jenie list-tasks` — Browse available tasks (user stories or bugs)
+> - `/jenie analyze-task` — Validate consistency of a specific task with INVEST + 3C
+> - `/jenie implement-task` — Implement a validated task end-to-end (branch, TDD, commit, lint)
 
 Throughout the workflow, follow the loaded global guidelines.

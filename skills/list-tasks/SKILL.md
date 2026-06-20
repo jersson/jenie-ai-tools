@@ -17,7 +17,7 @@ Read `../globals/INDEX.md` and follow its instructions to load all globals. Cach
 
 ### 1. Determine intent
 
-If the developer asks to **validate** or **analyze** a specific task (e.g., "validate this user story", "analyze bug"), do not proceed with listing. Instead, tell them to use `/jenie:analyze-task` for that and stop.
+If the developer asks to **validate** or **analyze** a specific task (e.g., "validate this user story", "analyze bug"), do not proceed with listing. Instead, tell them to use `/jenie analyze-task` for that and stop.
 
 If they want to **list**, **browse**, or **show** tasks, proceed.
 
@@ -41,6 +41,6 @@ Read the files found in the folder (use `glob` to list them, then `read` each). 
 
 ### 5. Next steps
 
-After listing, ask: **Which task would you like to analyze?** When they pick one, suggest using `/jenie:analyze-task` to validate it with INVEST + 3C.
+After listing, ask: **Which task would you like to analyze?** When they pick one, suggest using `/jenie analyze-task` to validate it with INVEST + 3C.
 
 Throughout the workflow, follow the loaded global guidelines.

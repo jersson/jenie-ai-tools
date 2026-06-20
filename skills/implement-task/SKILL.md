@@ -23,7 +23,7 @@ Check whether `<project_root>/.jenie/technical-context.md` exists (use `ls` or `
 
 - **If it exists:** Read the file and cache its contents as the session's technical reference. The information within (scripts, naming conventions, project structure, workflow) should guide implementation decisions throughout all subsequent steps.
 - **If it does not exist:** This is a blocker. Tell the developer:
-  > ⚠️ **Technical context not found.** The file `.jenie/technical-context.md` is required for implementation (it provides project structure, scripts, naming conventions, and workflow rules). Please run `/jenie:prepare-for-wishes` first to generate it.
+  > ⚠️ **Technical context not found.** The file `.jenie/technical-context.md` is required for implementation (it provides project structure, scripts, naming conventions, and workflow rules). Please run `/jenie prepare-for-wishes` first to generate it.
 
   **Stop.** Do not proceed with implementation.
 
@@ -31,7 +31,7 @@ Check whether `<project_root>/.jenie/technical-context.md` exists (use `ls` or `
 
 ### 1. Determine the task to implement
 
-Ask the developer which task they want to implement — a file path or a reference to a task from `docs/`. If they're unsure, suggest using `/jenie:list-tasks` first to browse and stop.
+Ask the developer which task they want to implement — a file path or a reference to a task from `docs/`. If they're unsure, suggest using `/jenie list-tasks` first to browse and stop.
 
 Once you have the task file path, read the full task file so you know its acceptance criteria and details. If the developer does not provide a task after the prompt, inform them that implementation cannot proceed without a task and **stop**.
 
@@ -41,7 +41,7 @@ Once you have the task file path, read the full task file so you know its accept
 2. Find an entry whose `path` matches the task file path (relative to project root).
 3. Determine the current UTC time. If **no entry exists** or the entry's `timestamp` is **older than 1 hour** from the current time:
    - Tell the developer the task needs re-validation (it was never validated or the validation expired).
-   - Redirect to `/jenie:analyze-task` and **stop**.
+    - Redirect to `/jenie analyze-task` and **stop**.
 4. If the entry's `status` is **not** `"consistent-doable"`:
    - Inform the developer the task did not pass validation (status: `<status>`).
    - Ask if they want to refine the task and re-validate, or stop. Do **not** proceed with implementation.

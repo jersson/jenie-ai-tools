@@ -18,16 +18,17 @@ Add the plugin to your opencode configuration (`opencode.json` or `opencode.json
 }
 ```
 
-This auto-registers the skills directory and four `/jenie:*` commands.
+This auto-registers the skills directory and the `/jenie` command.
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `/jenie:prepare-for-wishes` | Entry point — loads global config, analyzes project technical context |
-| `/jenie:list-tasks` | Browse available tasks (user stories or bugs) from `docs/` |
-| `/jenie:analyze-task` | Validate a task with INVEST + 3C consistency checks |
-| `/jenie:implement-task` | Implement a validated task — branch, TDD, commit, lint |
+| `/jenie` | Main entry point — runs prepare-for-wishes by default |
+| `/jenie prepare-for-wishes` | Loads global config, analyzes project technical context |
+| `/jenie list-tasks` | Browse available tasks (user stories or bugs) from `docs/` |
+| `/jenie analyze-task` | Validate a task with INVEST + 3C consistency checks |
+| `/jenie implement-task` | Implement a validated task — branch, TDD, commit, lint |
 
 ## Project structure
 

@@ -5,7 +5,7 @@ description: Validate consistency of the selected task (user story or bug) using
 
 # Analyze Task Skill
 
-When this skill is loaded, you help the developer validate a task (user story or bug) before they start implementation. Use `/jenie:list-tasks` first if they need to browse available tasks.
+When this skill is loaded, you help the developer validate a task (user story or bug) before they start implementation. Use `/jenie list-tasks` first if they need to browse available tasks.
 
 ## Pre-condition
 
@@ -17,7 +17,7 @@ Read `../globals/INDEX.md` and follow its instructions to load all globals. Cach
 
 ### 1. Determine intent
 
-If the developer asks to **list**, **browse**, or **show** tasks (e.g., "list bugs", "show available user stories"), do not proceed with analysis. Instead, tell them to use `/jenie:list-tasks` for that and stop.
+If the developer asks to **list**, **browse**, or **show** tasks (e.g., "list bugs", "show available user stories"), do not proceed with analysis. Instead, tell them to use `/jenie list-tasks` for that and stop.
 
 If they want to **validate** or **analyze** a specific task, proceed.
 
