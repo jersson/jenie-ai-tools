@@ -4,13 +4,28 @@ OpenCode skill library for task-driven development: browse, validate, and implem
 
 ## Installation
 
+### Global (recommended)
+
+```bash
+npm install -g @jenie/ai-tools
+```
+
+Then in any OpenCode project:
+
+```bash
+cd my-project
+jenie install --opencode
+```
+
+This adds the plugin to your project's `opencode.json` automatically.
+
+### Local
+
 ```bash
 npm install @jenie/ai-tools
 ```
 
-## Configuration
-
-Add the plugin to your opencode configuration (`opencode.json` or `opencode.jsonc`):
+Then add the plugin to your `opencode.json` or `opencode.jsonc`:
 
 ```json
 {
@@ -18,7 +33,7 @@ Add the plugin to your opencode configuration (`opencode.json` or `opencode.json
 }
 ```
 
-This auto-registers the skills directory and the `/jenie` command.
+Both methods auto-register the skills directory and the `/jenie` command.
 
 ## Commands
 

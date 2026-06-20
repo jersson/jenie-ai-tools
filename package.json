@@ -9,8 +9,12 @@
   },
   "files": [
     "skills/",
-    "plugin.mjs"
+    "plugin.mjs",
+    "cli.mjs"
   ],
+  "bin": {
+    "jenie": "./cli.mjs"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jersson/jenie-ai-tools.git"
