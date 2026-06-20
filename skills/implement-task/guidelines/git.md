@@ -8,13 +8,14 @@ Before branching, check the current git branch and working tree:
 
 ## 2. Branch naming
 
-Derive the task type from the file path (e.g., `docs/user-stories/` → `user-story`, `docs/bugs/` → `bug`). Derive a short kebab-case description from the filename (strip extension).
+Derive the task type from the file path (e.g., `docs/user-stories/` → user story, `docs/bugs/` → bug). Derive a short kebab-case description from the filename (strip extension).
 
 ```
-git checkout -b feature/<type>-<description>
+git checkout -b <prefix>/<description>
 ```
 
-Example: `feature/user-story-add-login`, `feature/bug-fix-null-pointer`.
+- **User story** → `feat/<description>` (e.g., `feat/add-login`)
+- **Bug** → `fix/<description>` (e.g., `fix/null-pointer`)
 
 If the branch already exists locally, ask the developer how to proceed.
 

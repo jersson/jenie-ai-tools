@@ -51,7 +51,7 @@ Once you have the task file path, read the full task file so you know its accept
 
 Read `./guidelines/git.md` and follow its branch naming and working tree conventions. Cache the git conventions for later steps.
 
-Before creating the branch, check whether a remote named `origin` exists (`git remote get-url origin`). If it does, check whether the branch exists on the remote (`git ls-remote --heads origin feature/<type>-<description>`). If it exists, ask the developer how to proceed (reuse, rename, or delete). If no `origin` remote exists, skip the remote check and proceed.
+Before creating the branch, check whether a remote named `origin` exists (`git remote get-url origin`). If it does, check whether the branch exists on the remote (`git ls-remote --heads origin <prefix>/<description>`). If it exists, ask the developer how to proceed (reuse, rename, or delete). If no `origin` remote exists, skip the remote check and proceed.
 
 ### 4. Write test cases from acceptance criteria (TDD)
 
