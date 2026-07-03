@@ -7,6 +7,8 @@ description: Validate consistency of the selected task (user story or bug) using
 
 When this skill is loaded, you help the developer validate a task (user story or bug) before they start implementation. Use `/jenie list-tasks` first if they need to browse available tasks.
 
+> **Command syntax:** jenie commands are written here as `/jenie <name>`. In OpenCode use them as-is (e.g., `/jenie list-tasks`); in Claude Code they are namespaced with a colon (e.g., `/jenie:list-tasks`). Always show the developer the syntax that matches the current environment.
+
 ## Pre-condition
 
 ### 1. Load Global Guidelines

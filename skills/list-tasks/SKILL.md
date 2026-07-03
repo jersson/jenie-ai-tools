@@ -7,6 +7,8 @@ description: Browse available tasks (user story or bug) from the project's docs/
 
 When this skill is loaded, you help the developer browse available tasks (user stories or bugs) stored in `<project_root>/docs/` folder.
 
+> **Command syntax:** jenie commands are written here as `/jenie <name>`. In OpenCode use them as-is (e.g., `/jenie analyze-task`); in Claude Code they are namespaced with a colon (e.g., `/jenie:analyze-task`). Always show the developer the syntax that matches the current environment.
+
 ## Pre-condition
 
 ### 1. Load Global Guidelines

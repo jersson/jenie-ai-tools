@@ -1,0 +1,8 @@
+{
+  "name": "jenie",
+  "description": "Task-driven development workflows",
+  "version": "0.1.0",
+  "skills": [
+    "./skills"
+  ]
+}

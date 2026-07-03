@@ -7,6 +7,8 @@ description: Implement a validated task end-to-end. Checks that analyze-task ran
 
 When this skill is loaded, you help the developer implement a validated task (user story or bug) from start to finish — branching, TDD, implementation, linting, and committing.
 
+> **Command syntax:** jenie commands are written here as `/jenie <name>`. In OpenCode use them as-is (e.g., `/jenie prepare-for-wishes`); in Claude Code they are namespaced with a colon (e.g., `/jenie:prepare-for-wishes`). Always show the developer the syntax that matches the current environment.
+
 ## Pre-condition
 
 ### 1. Load Global Guidelines

@@ -7,6 +7,8 @@ description: Entry point skill that loads all global guidelines, analyzes the pr
 
 When this skill is loaded, you are the entry point. Load the global configuration, analyze the project's technical landscape, then ask the developer what they need.
 
+> **Command syntax:** jenie commands are written here as `/jenie <name>`. In OpenCode use them as-is (e.g., `/jenie list-tasks`); in Claude Code they are namespaced with a colon (e.g., `/jenie:list-tasks`). Always show the developer the syntax that matches the current environment.
+
 ## Pre-condition
 
 ### 1. Load Global Guidelines

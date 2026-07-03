@@ -1,0 +1,13 @@
+{
+  "name": "jenie",
+  "owner": {
+    "name": "Jersson"
+  },
+  "plugins": [
+    {
+      "name": "jenie",
+      "source": "./",
+      "description": "Task-driven development workflows"
+    }
+  ]
+}
