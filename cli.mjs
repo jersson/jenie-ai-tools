@@ -2,6 +2,7 @@
 
 import { installOpenCode, uninstallOpenCode } from './lib/install.mjs';
 import { installClaude, uninstallClaude } from './lib/install-claude.mjs';
+import { printBanner, printFooter } from './lib/banner.mjs';
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -19,6 +20,8 @@ function rejectOpenCodeGlobal() {
   console.error('--global is not supported with --opencode: OpenCode installs at repository level.');
   process.exitCode = 1;
 }
+
+printBanner();
 
 if (command === 'install') {
   if (args.includes('--opencode')) {
@@ -47,3 +50,5 @@ if (command === 'install') {
 } else {
   showHelp();
 }
+
+printFooter();

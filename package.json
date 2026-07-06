@@ -12,7 +12,8 @@
     "skills/",
     "lib/",
     "plugin.mjs",
-    "cli.mjs"
+    "cli.mjs",
+    "banner.txt"
   ],
   "bin": {
     "jenie": "./cli.mjs"
