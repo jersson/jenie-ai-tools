@@ -20,11 +20,11 @@
     "LICENSE"
   ],
   "bin": {
-    "jenie": "./cli.mjs"
+    "jenie": "cli.mjs"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jersson/jenie-ai-tools.git"
+    "url": "git+https://github.com/jersson/jenie-ai-tools.git"
   },
   "keywords": [
     "opencode",
