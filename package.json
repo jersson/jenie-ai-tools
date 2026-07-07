@@ -1,5 +1,5 @@
 {
-  "name": "@jenie/ai-tools",
+  "name": "@my-jenie/ai-tools",
   "version": "0.1.0",
   "type": "module",
   "description": "Skill library to make code based on user stories or bugs specs",

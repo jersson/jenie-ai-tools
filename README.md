@@ -1,10 +1,25 @@
-# @jenie/ai-tools
+# Jenie AI tools
 
-Skill library for task-driven development: browse, validate, and implement user stories and bugs using INVEST + 3C and TDD.
+```bash
+=============================
+       _            _      
+      | |          (_)     
+      | | ___ _ __  _  ___ 
+  _   | |/ _ \ '_ \| |/ _ \
+ | |__| |  __/ | | | |  __/
+  \____/ \___|_| |_|_|\___|
+
+=============================
+```
+`jenie` is a `proto` skill library focused to work with small / medium development tasks, considering:
+- Identify available tasks (user stories or bugs) and validate consistency using [INVEST](https://en.wikipedia.org/wiki/INVEST_(mnemonic)) and [3C](https://ronjeffries.com/xprog/articles/expcardconversationconfirmation/) practices 
+- Implement validated tasks using TDD practices
+
+> Keep it simple, use `jenie` in any case you need to implement a small / medium feature or fix a bug 
 
 Run `jenie` with no arguments at any time to see the command list.
 
-## Skills
+## Available skills
 
 - **prepare-for-wishes** — loads global guidelines, analyzes the project's tech stack and conventions, then asks what to do
 - **list-tasks** — paginates available tasks with descriptions
@@ -30,18 +45,8 @@ Run `jenie` with no arguments at any time to see the command list.
 
 ## Installation
 
-> **Not yet published to npm.** Until it is, install from source:
->
-> ```bash
-> git clone https://github.com/jersson/jenie-ai-tools.git
-> cd jenie-ai-tools
-> npm link
-> ```
-
-Once published:
-
 ```bash
-npm install -g @jenie/ai-tools
+npm install -g @my-jenie/ai-tools
 ```
 
 ### OpenCode
