@@ -7,13 +7,17 @@
   "engines": {
     "node": ">=18"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     ".claude-plugin/",
     "skills/",
     "lib/",
     "plugin.mjs",
     "cli.mjs",
-    "banner.txt"
+    "banner.txt",
+    "LICENSE"
   ],
   "bin": {
     "jenie": "./cli.mjs"
