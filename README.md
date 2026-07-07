@@ -103,7 +103,7 @@ Without `--global`, the installer works at repository level: it writes `extraKno
 The installer:
 
 1. Ensures `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json` exist in the package — created if missing; an existing `marketplace.json` gets the jenie entry merged in without touching other entries.
-2. Registers the package directory as a plugin marketplace and installs `jenie@jenie` through the `claude` CLI.
+2. Registers the package directory as a plugin marketplace and installs `jenie@ai-tools` through the `claude` CLI.
 3. Removes any legacy `.claude/skills/jenie` install left by older versions (only after the plugin install succeeds).
 
 Restart Claude Code afterwards (exit and run `claude` again) — plugins are discovered at startup.
@@ -114,7 +114,7 @@ Alternatively, without npm or the `jenie` CLI (requires the `.claude-plugin/` ma
 
 ```bash
 claude plugin marketplace add jersson/jenie-ai-tools
-claude plugin install jenie@jenie
+claude plugin install jenie@ai-tools
 ```
 
 ## Uninstall
