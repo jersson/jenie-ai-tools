@@ -1,6 +1,6 @@
 {
   "name": "@my-jenie/ai-tools",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Skill library to make code based on user stories or bugs specs",
   "license": "MIT",
