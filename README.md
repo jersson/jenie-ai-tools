@@ -129,3 +129,9 @@ jenie uninstall --claude-code --global    # global (user scope)
 
 The Claude Code variant uninstalls the plugin, removes the marketplace registration, and cleans up legacy installs.
 
+## Version
+
+```bash
+jenie --version    # or jenie -v
+```
+
