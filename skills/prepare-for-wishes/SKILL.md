@@ -30,7 +30,7 @@ Check whether `<project_root>/.jenie/technical-context.md` already exists (use `
 
   **When using MCP, include:** Layers (internal/core/entry/leaf) and Boundaries (call flow between modules).
 
-Write the results to `<project_root>/.jenie/technical-context.md`. Create the `.jenie/` directory first if it does not exist. Use the template in `./guidelines/technical-context-template.md` as the output format.
+Write the results to `<project_root>/.jenie/technical-context.md`. Create the `.jenie/` directory first if it does not exist. Use the template in `./guidelines/technical-context-template.md` as the output format. Generate timestamps using the current UTC time (e.g., `new Date().toISOString()` in Node.js).
 
 After writing, read the file back and cache its contents in context. The summary is available for the rest of the session — any downstream skill can reference `.jenie/technical-context.md` for project technical context.
 
