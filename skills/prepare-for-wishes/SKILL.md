@@ -24,7 +24,11 @@ Check whether `<project_root>/.git` exists (use `ls` or `test -d`).
 Check whether `<project_root>/.jenie/technical-context.md` already exists (use `ls` or `test -f`).
 
 - **If it exists and was generated less than 1 hour ago:** Read the file and cache its contents in context. Skip re-analysis. Use `node -e "const s=require('fs').statSync('.jenie/technical-context.md'); console.log(Date.now() - s.mtimeMs < 3600000)"` (run from project root) to check staleness. If the output is `true`, the file is fresh enough.
-- **Otherwise:** Read `./guidelines/technical-analysis.md` and follow its instructions to inspect the project's tech stack, structure, naming conventions, and coding workflow.
+- **Otherwise:** Run `./guidelines/codebase-memory-analysis.md` first — it uses [codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) for faster, cheaper analysis. If its availability check fails (see step 0 of that guideline), fall back to `./guidelines/technical-analysis.md` and follow its instructions.
+
+  **When using MCP, include these additional data points in the technical context:**
+  - **Layers**: Architectural role of each module (internal, core, entry, leaf)
+  - **Boundaries**: Call flow between modules (e.g., `install → config (6 calls)`) — shows dependency direction
 
 Write the results to `<project_root>/.jenie/technical-context.md`. Create the `.jenie/` directory first if it does not exist. Use the template in `./guidelines/technical-context-template.md` as the output format.
 

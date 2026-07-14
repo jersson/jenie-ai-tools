@@ -48,6 +48,8 @@ Like I said, jenie's main goal is **to work with not huge development taks**, bu
 
 Any other stack still gets a basic analysis, but without dedicated framework/tooling detection.
 
+If the developer already has [codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) configured as an MCP server, `prepare-for-wishes` prefers it automatically for a faster, richer analysis (158 languages, call graphs, hotspots) — this is optional and not a new requirement; the manifest-based detection above is the fallback when it isn't present.
+
 ## Requirements
 
 - Node.js >= 18
