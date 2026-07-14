@@ -23,14 +23,12 @@ Check whether `<project_root>/.git` exists (use `ls` or `test -d`).
 
 Check whether `<project_root>/.jenie/technical-context.md` already exists (use `ls` or `test -f`).
 
-- **If invoked explicitly (not as precondition):** Always regenerate. The developer intentionally wants to refresh the context.
+- **If invoked explicitly (not as precondition):** Always regenerate.
 - **If invoked as precondition (from implement-task):**
-  - **If it exists and was generated less than 7 days ago:** Read the file and cache its contents in context. Skip re-analysis. Check the `Generated` timestamp in the `Cache` section.
+  - **If it exists and was generated less than 7 days ago:** Read and cache. Skip re-analysis. Check the `Generated` timestamp in the `Cache` section.
   - **Otherwise:** Run analysis to regenerate.
 
-  **When using MCP, include these additional data points in the technical context:**
-  - **Layers**: Architectural role of each module (internal, core, entry, leaf)
-  - **Boundaries**: Call flow between modules (e.g., `install → config (6 calls)`) — shows dependency direction
+  **When using MCP, include:** Layers (internal/core/entry/leaf) and Boundaries (call flow between modules).
 
 Write the results to `<project_root>/.jenie/technical-context.md`. Create the `.jenie/` directory first if it does not exist. Use the template in `./guidelines/technical-context-template.md` as the output format.
 

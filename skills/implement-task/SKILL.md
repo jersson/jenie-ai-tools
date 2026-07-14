@@ -59,12 +59,9 @@ Before creating the branch, check whether a remote named `origin` exists (`git r
 
 Read `./guidelines/tdd.md` and follow its TDD process: extract criteria, discover test infrastructure, write tests (red phase), then implement (green phase).
 
-#### MCP exploration (if available)
-
-Before writing tests, if MCP Status is `Available: true` in `technical-context.md`:
+**If MCP available** (check `MCP Status` in `technical-context.md`):
 - Use `search_graph(label="Function", name_pattern=".*test.*")` to find existing test patterns
 - Use `get_code_snippet()` to read relevant test examples
-- This helps follow existing conventions without manual file searching
 
 ### 5. Functional commit
 
