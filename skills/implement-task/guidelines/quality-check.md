@@ -4,6 +4,11 @@ Run all available automated checks, then manually scan for issues.
 
 ## 1. Linting
 
+**If MCP available** (check `MCP Status` in `technical-context.md`):
+- Use `search_graph(query="lint config eslint prettier")` to find linter configuration
+- Use `get_code_snippet()` to read config files if found
+
+**Else (fallback):**
 Detect the project's linter (from `technical-context.md` or by probing):
 - `npm run lint` (Node.js)
 - `ruff check .` or `pylint` (Python)

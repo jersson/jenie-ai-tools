@@ -6,6 +6,12 @@ Each acceptance criterion from the task becomes at least one test. Read the full
 
 ## 2. Discover test infrastructure
 
+**If MCP available** (check `MCP Status` in `technical-context.md`):
+- Use `search_graph(label="Function", name_pattern=".*test.*")` to find existing test functions
+- Use `search_graph(label="File", name_pattern=".*test.*|.*spec.*")` to find test files
+- Use `get_code_snippet()` to read test patterns from found functions
+
+**Else (fallback):**
 - Look for a `tests/` or `test/` directory at project root.
 - Check `package.json` for a `test` script.
 - Look for `*.test.*` or `*.spec.*` files adjacent to source code.

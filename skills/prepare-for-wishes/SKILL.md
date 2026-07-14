@@ -23,8 +23,10 @@ Check whether `<project_root>/.git` exists (use `ls` or `test -d`).
 
 Check whether `<project_root>/.jenie/technical-context.md` already exists (use `ls` or `test -f`).
 
-- **If it exists and was generated less than 1 hour ago:** Read the file and cache its contents in context. Skip re-analysis. Use `node -e "const s=require('fs').statSync('.jenie/technical-context.md'); console.log(Date.now() - s.mtimeMs < 3600000)"` (run from project root) to check staleness. If the output is `true`, the file is fresh enough.
-- **Otherwise:** Run `./guidelines/codebase-memory-analysis.md` first — it uses [codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) for faster, cheaper analysis. If its availability check fails (see step 0 of that guideline), fall back to `./guidelines/technical-analysis.md` and follow its instructions.
+- **If invoked explicitly (not as precondition):** Always regenerate. The developer intentionally wants to refresh the context.
+- **If invoked as precondition (from implement-task):**
+  - **If it exists and was generated less than 7 days ago:** Read the file and cache its contents in context. Skip re-analysis. Check the `Generated` timestamp in the `Cache` section.
+  - **Otherwise:** Run analysis to regenerate.
 
   **When using MCP, include these additional data points in the technical context:**
   - **Layers**: Architectural role of each module (internal, core, entry, leaf)
