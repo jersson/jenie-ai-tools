@@ -3,8 +3,9 @@
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { installOpenCode, uninstallOpenCode } from './lib/install.mjs';
+import { installOpenCode, uninstallOpenCode } from './lib/install-opencode.mjs';
 import { installClaude, uninstallClaude } from './lib/install-claude.mjs';
+import { installCopilot, uninstallCopilot } from './lib/install-copilot.mjs';
 import { printBanner, printFooter } from './lib/banner.mjs';
 import { spawnSync } from 'child_process';
 
@@ -14,6 +15,32 @@ const { version } = JSON.parse(readFileSync(join(__dirname, 'package.json'), 'ut
 const args = process.argv.slice(2);
 const command = args[0];
 const globalFlag = args.includes('--global');
+const installTargets = [
+  {
+    flag: '--opencode',
+    install: installOpenCode,
+    uninstall: uninstallOpenCode,
+    supportsGlobal: false,
+    installHelp: 'jenie install --opencode                 # repository level (current directory)',
+    uninstallHelp: 'jenie uninstall --opencode',
+  },
+  {
+    flag: '--claude-code',
+    install: installClaude,
+    uninstall: uninstallClaude,
+    supportsGlobal: true,
+    installHelp: 'jenie install --claude-code [--global]   # repository level; --global installs for all projects',
+    uninstallHelp: 'jenie uninstall --claude-code [--global]',
+  },
+  {
+    flag: '--copilot',
+    install: installCopilot,
+    uninstall: uninstallCopilot,
+    supportsGlobal: true,
+    installHelp: 'jenie install --copilot [--global]       # repository level; --global installs for all projects',
+    uninstallHelp: 'jenie uninstall --copilot [--global]',
+  },
+];
 
 function hasCodebaseMemoryMcp() {
   const result = spawnSync('which', ['codebase-memory-mcp'], { encoding: 'utf-8' });
@@ -29,15 +56,17 @@ function printMcpHint() {
 
 function showHelp() {
   console.log('Usage:');
-  console.log('  jenie install --opencode                 # repository level (current directory)');
-  console.log('  jenie install --claude-code [--global]   # repository level; --global installs for all projects');
-  console.log('  jenie uninstall --opencode');
-  console.log('  jenie uninstall --claude-code [--global]');
+  for (const target of installTargets) {
+    console.log(`  ${target.installHelp}`);
+  }
+  for (const target of installTargets) {
+    console.log(`  ${target.uninstallHelp}`);
+  }
   console.log('  jenie --version, -v                      # show version');
 }
 
-function rejectOpenCodeGlobal() {
-  console.error('--global is not supported with --opencode: OpenCode installs at repository level.');
+function rejectGlobal(target) {
+  console.error(`--global is not supported with ${target.flag}: this target installs at repository level.`);
   process.exitCode = 1;
 }
 
@@ -45,33 +74,18 @@ printBanner();
 
 if (command === '--version' || command === '-v') {
   console.log(version);
-} else if (command === 'install') {
-  if (args.includes('--opencode')) {
-    if (globalFlag) {
-      rejectOpenCodeGlobal();
-    } else {
-      installOpenCode(process.cwd());
-    }
-  } else if (args.includes('--claude-code')) {
-    installClaude(globalFlag ? null : process.cwd());
-  } else {
-    showHelp();
-  }
-  if (!process.exitCode) printMcpHint();
-} else if (command === 'uninstall') {
-  if (args.includes('--opencode')) {
-    if (globalFlag) {
-      rejectOpenCodeGlobal();
-    } else {
-      uninstallOpenCode(process.cwd());
-    }
-  } else if (args.includes('--claude-code')) {
-    uninstallClaude(globalFlag ? null : process.cwd());
-  } else {
-    showHelp();
-  }
 } else {
-  showHelp();
+  const target = installTargets.find(({ flag }) => args.includes(flag));
+  const action = command === 'install' || command === 'uninstall' ? command : null;
+
+  if (!target || !action) {
+    showHelp();
+  } else if (globalFlag && !target.supportsGlobal) {
+    rejectGlobal(target);
+  } else {
+    target[action](globalFlag ? null : process.cwd());
+    if (action === 'install' && !process.exitCode) printMcpHint();
+  }
 }
 
 printFooter();

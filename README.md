@@ -53,7 +53,7 @@ If the developer already has [codebase-memory-mcp](https://github.com/DeusData/c
 ## Requirements
 
 - Node.js >= 18
-- [OpenCode](https://opencode.ai) and/or [Claude Code](https://claude.com/claude-code) — the Claude Code installer shells out to the `claude` CLI, so it must be on your `PATH`
+- [OpenCode](https://opencode.ai), [Claude Code](https://claude.com/claude-code), and/or [GitHub Copilot CLI](https://github.com/github/copilot-cli) — the Claude Code installer shells out to the `claude` CLI, so it must be on your `PATH`
 - Local folder for the tasks to be implemented, by default, `jenie` will look for the `docs` folder
 
 ## Installation
@@ -119,19 +119,38 @@ claude plugin marketplace add jersson/jenie-ai-tools
 claude plugin install jenie@ai-tools
 ```
 
+### GitHub Copilot CLI
+
+```bash
+cd my-project
+jenie install --copilot             # project level (current directory)
+jenie install --copilot --global   # user level (all projects)
+```
+
+The project installer creates `.github/skills/jenie` as a link to the package's
+skills directory. The global installer creates `~/.copilot/skills/jenie`, which
+makes the skills available across projects. Existing non-Jenie paths are never
+overwritten.
+
+Restart Copilot CLI or run `/skills reload` after installation. The skills are
+invoked by their individual names: `/prepare-for-wishes`, `/list-tasks`,
+`/analyze-task`, and `/implement-task`. Copilot also supports managing skills
+with `copilot skill list`.
+
 ## Uninstall
 
 ```bash
 jenie uninstall --opencode                # repository level (current directory)
 jenie uninstall --claude-code             # repository level (current directory)
 jenie uninstall --claude-code --global    # global (user scope)
+jenie uninstall --copilot                # project level (current directory)
+jenie uninstall --copilot --global       # user level (all projects)
 ```
 
-The Claude Code variant uninstalls the plugin, removes the marketplace registration, and cleans up legacy installs.
+The Claude Code variant uninstalls the plugin, removes the marketplace registration, and cleans up legacy installs. The Copilot variant removes only the Jenie-managed skills link.
 
 ## Version
 
 ```bash
 jenie --version    # or jenie -v
 ```
-
